@@ -5,6 +5,9 @@
 package my_package;
 
 import javax.swing.JOptionPane;
+import api.MemberController;
+import models.Member;
+import models.MemberSingleton;
 
 /**
  *
@@ -181,14 +184,24 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn2ActionPerformed
-        landingPage land = new landingPage();
         if(emailTextField2.getText().trim().isEmpty())
            JOptionPane.showMessageDialog(null, "The email is not invalid", "Validation Error", JOptionPane.ERROR_MESSAGE);
         else if(passwordTextField2.getText().trim().isEmpty())
             JOptionPane.showMessageDialog(null, "The password is empty", "Validation Error", JOptionPane.ERROR_MESSAGE);
         else{
-            land.show();
-            this.hide();        
+            Member m = MemberController.getMemberByEmail(emailTextField2.getText());
+            if (m == null) {
+                return;
+            }
+            if (m.password.equals(new String(passwordTextField2.getPassword()))) {
+                MemberSingleton.getInstance().setMember(m);
+                new landingPage().show();
+                dispose();
+                System.out.println(MemberSingleton.getInstance().getMember().toString());
+            } else {
+                JOptionPane.showMessageDialog(this, "Password is not correct", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            
         }
     }//GEN-LAST:event_loginBtn2ActionPerformed
 
