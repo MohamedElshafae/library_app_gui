@@ -14,9 +14,6 @@ import com.google.gson.GsonBuilder;
 public abstract class Base {
     public int id;
     
-    public Base(int id) {
-        this.id = id;
-    }
     public String toJson() {
         Gson gson = new GsonBuilder().create();
         return gson.toJson(this);
