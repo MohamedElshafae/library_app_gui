@@ -52,7 +52,6 @@ public class BookController {
         try {
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             String responseBody = response.body();
-            System.out.println(responseBody);
         } catch (Exception e) {
             System.out.println("Error occurred:");
             System.out.println(e);

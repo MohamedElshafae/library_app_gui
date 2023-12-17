@@ -27,20 +27,5 @@ public class Member {
         this.email = email;
         this.password = password;
         this.isAuthor = isAuthor;
-    }
-    
-    public String toJson() {
-        Gson gson = new GsonBuilder().create();
-        return gson.toJson(this);
-    }
-    @Override
-    public String toString() {
-        return "Member{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", isAuthor=" + isAuthor +
-                '}';
-    } 
+    }    
 }

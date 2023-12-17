@@ -6,31 +6,27 @@ package models;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.util.List;
 
 /**
  *
  * @author tuttrue
  */
-public class Book {
+public class Book extends Base{
     public String title;
     public int authorId;
     public String description;
+    public int publicationYear;
+    public List<Genre> genres;
+    public Author author;
+//    public List<Reservation> reservations;
+//    public List<Borrowing> Borrowings;
     
-    public Book(String title, int authorId, String description) {
+    public Book(String title, int authorId, String description, List<Genre> genres) {
         this.title = title;
         this.authorId = authorId;
         this.description = description;
+        this.genres = genres;
     }
-    public String toJson() {
-        Gson gson = new GsonBuilder().create();
-        return gson.toJson(this);
-    }
-    @Override
-    public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", authorId=" + authorId +
-                '}';
-    } 
+
 }
