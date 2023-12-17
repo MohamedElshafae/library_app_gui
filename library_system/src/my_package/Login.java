@@ -4,6 +4,8 @@
  */
 package my_package;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author AL AHLAWY
@@ -26,21 +28,188 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        emailTextField = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        passwordTextField = new javax.swing.JPasswordField();
+        loginBtn = new javax.swing.JButton();
+        clearBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        createAccountBtn = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
+        setType(java.awt.Window.Type.POPUP);
+
+        jPanel1.setBackground(new java.awt.Color(243, 238, 234));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(119, 107, 93));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Get Started");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(119, 107, 93));
+        jLabel5.setText("Email :");
+
+        emailTextField.setBackground(new java.awt.Color(176, 166, 149));
+        emailTextField.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        emailTextField.setForeground(new java.awt.Color(255, 255, 255));
+        emailTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        emailTextField.setName(""); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(119, 107, 93));
+        jLabel6.setText("Password :");
+
+        passwordTextField.setBackground(new java.awt.Color(176, 166, 149));
+        passwordTextField.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        passwordTextField.setForeground(new java.awt.Color(255, 255, 255));
+
+        loginBtn.setBackground(new java.awt.Color(119, 107, 93));
+        loginBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(255, 255, 255));
+        loginBtn.setText("LOGIN");
+        loginBtn.setBorder(null);
+        loginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtnActionPerformed(evt);
+            }
+        });
+
+        clearBtn.setBackground(new java.awt.Color(243, 238, 234));
+        clearBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        clearBtn.setForeground(new java.awt.Color(119, 107, 93));
+        clearBtn.setText("CLEAR");
+        clearBtn.setToolTipText("");
+        clearBtn.setBorder(null);
+        clearBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        clearBtn.setDefaultCapable(false);
+        clearBtn.setFocusPainted(false);
+        clearBtn.setFocusable(false);
+        clearBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        clearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(119, 107, 93));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Didn't have account?");
+
+        createAccountBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        createAccountBtn.setForeground(new java.awt.Color(119, 107, 93));
+        createAccountBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        createAccountBtn.setText("Create Account");
+        createAccountBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        createAccountBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createAccountBtnMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(1, 1, 1)
+                                    .addComponent(jLabel5))
+                                .addComponent(jLabel6)
+                                .addComponent(passwordTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)))
+                        .addComponent(loginBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                        .addComponent(clearBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(createAccountBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {emailTextField, passwordTextField});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {clearBtn, loginBtn});
+
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addGap(12, 12, 12)
+                .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(loginBtn)
+                .addGap(18, 18, 18)
+                .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(createAccountBtn)
+                .addGap(23, 23, 23))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {emailTextField, passwordTextField});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {clearBtn, loginBtn});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 269, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>                        
+
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        landingPage land = new landingPage();
+        if(emailTextField.getText().trim().isEmpty())
+           JOptionPane.showMessageDialog(null, "The email is not invalid", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        else if(passwordTextField.getText().trim().isEmpty())
+            JOptionPane.showMessageDialog(null, "The password is empty", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        else{
+            land.show();
+            this.hide();        
+        }
+
+    }                                        
+
+    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        emailTextField.setText("");
+        passwordTextField.setText("");
+    }                                        
+
+    private void createAccountBtnMouseClicked(java.awt.event.MouseEvent evt) {                                              
+        sign_up sign = new sign_up();
+        this.hide();
+        sign.show();
+    }                                             
 
     /**
      * @param args the command line arguments
@@ -78,5 +247,15 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton clearBtn;
+    private javax.swing.JLabel createAccountBtn;
+    private javax.swing.JTextField emailTextField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton loginBtn;
+    private javax.swing.JPasswordField passwordTextField;
     // End of variables declaration                   
 }
