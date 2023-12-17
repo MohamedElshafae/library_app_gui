@@ -11,7 +11,7 @@ import com.google.gson.GsonBuilder;
  *
  * @author tuttrue
  */
-public class Member {
+public class Member extends Base{
     public String name;
     public String address;
     public String phone;

@@ -16,8 +16,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 import models.Member;
+import my_package.sign_up;
 
 /**
  *
@@ -60,9 +62,9 @@ public class MemberController {
         try {
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             String responseBody = response.body();
-            System.out.println(responseBody);
+            new Gson().fromJson(responseBody, Member.class);
         } catch (Exception e) {
-            System.out.println("Error occurred:");
+            JOptionPane.showMessageDialog(new sign_up(), "This email already exists", "error", JOptionPane.ERROR_MESSAGE);
             System.out.println(e);
         }
     }
