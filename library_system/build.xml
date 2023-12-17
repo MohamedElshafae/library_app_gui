@@ -10,6 +10,24 @@
 <project name="library_system" default="default" basedir=".">
     <description>Builds, tests, and runs the project library_system.</description>
     <import file="nbproject/build-impl.xml"/>
+    
+        <property name="src.dir" value="src" />
+    <property name="build.dir" value="build" />
+    <property name="lib.dir" value="lib" />
+
+    <!-- Gson library -->
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="gson-*.jar" />
+    </path>
+
+    <!-- Compile task -->
+    <target name="compile">
+        <mkdir dir="${build.dir}" />
+        <javac srcdir="${src.dir}" destdir="${build.dir}">
+            <classpath refid="classpath" />
+        </javac>
+    </target>
+
     <!--
 
     There exist several targets which are by default empty and which can be 
