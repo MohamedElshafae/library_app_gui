@@ -21,19 +21,15 @@ public class BookController {
 
     public static List<Book> getAllBooks() {
         HttpRequest x = (HttpRequest) HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:3000/api/book"))
+                .uri(URI.create("http://localhost:3000/api/book"))  
                 .GET().build();
         HttpClient httpClient = HttpClient.newHttpClient();
         try {
-
             HttpResponse<String> response = httpClient.send(x, HttpResponse.BodyHandlers.ofString());
-
             String responseBody = response.body();
-
             Gson gson = new Gson();
-
             BooksResponse books = gson.fromJson(responseBody, BooksResponse.class);
-            
+            System.out.print(books.getBooks());
             return books.getBooks();
         } catch (Exception e) {
             System.out.println(e);
