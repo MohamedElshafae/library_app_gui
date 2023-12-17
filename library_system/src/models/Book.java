@@ -19,8 +19,8 @@ public class Book extends Base{
     public int publicationYear;
     public List<Genre> genres;
     public Author author;
-//    public List<Reservation> reservations;
-//    public List<Borrowing> Borrowings;
+    public List<Reservation> reservations;
+    public List<Borrowing> Borrowings;
     
     public Book(String title, int authorId, String description, List<Genre> genres) {
         this.title = title;
