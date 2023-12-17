@@ -7,7 +7,9 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-
+import api.BookController;
+import java.util.List;
+import models.Book;
 /**
  *
  * @author AL AHLAWY
@@ -21,9 +23,15 @@ public class landingPage extends javax.swing.JFrame {
 
         initComponents();
 
-        for (int i = 1; i <= 30; i++) {
-            cardLayoutPanel j = new cardLayoutPanel("/my_package/pngegg", "mybook");
-            jmyBooks.add(j);
+        
+        BookController obj = new BookController();
+        List<Book> book_arr = obj.getAllBooks();
+        System.out.print(book_arr);
+        if (book_arr != null) {
+            for (int i = 0; i < book_arr.size(); i++) {
+                cardLayoutPanel j = new cardLayoutPanel(book_arr.get(i));
+                jmyBooks.add(j);
+            }
         }
         //make the icon strech
         Icon i = img.getIcon();
@@ -50,6 +58,7 @@ public class landingPage extends javax.swing.JFrame {
         myProfileButton = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
         img = new javax.swing.JLabel();
+        logout = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jmyBooks = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -111,22 +120,34 @@ public class landingPage extends javax.swing.JFrame {
         img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my_package/imgs/pngegg.png"))); // NOI18N
         img.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        logout.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        logout.setForeground(new java.awt.Color(255, 255, 255));
+        logout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logout.setText("Logout");
+        logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(myProfileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(booksButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(HomeButtom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(80, 80, 80))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(135, 135, 135))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(myProfileButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(booksButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(HomeButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(logout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(80, 80, 80))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,13 +156,15 @@ public class landingPage extends javax.swing.JFrame {
                 .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(name)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(HomeButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(booksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(myProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(402, 402, 402))
+                .addGap(172, 172, 172)
+                .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(257, 257, 257))
         );
 
         jhome.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 666));
@@ -208,6 +231,12 @@ public class landingPage extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_HomeButtomMouseClicked
 
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        Login obj = new Login();
+        hide();
+        obj.show();
+    }//GEN-LAST:event_logoutMouseClicked
+
     /**
      * u
      *
@@ -255,6 +284,7 @@ public class landingPage extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel jhome;
     private javax.swing.JPanel jmyBooks;
+    private javax.swing.JLabel logout;
     private javax.swing.JLabel myProfileButton;
     private javax.swing.JLabel name;
     // End of variables declaration//GEN-END:variables

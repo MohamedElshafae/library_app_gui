@@ -7,6 +7,7 @@ package my_package;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import models.Book;
 
 /**
  *
@@ -14,16 +15,18 @@ import javax.swing.ImageIcon;
  */
 public class cardLayoutPanel extends javax.swing.JPanel {
 
+    Book book;
     /**
      * Creates new form cardLayoutPanel
      */
-    public cardLayoutPanel(String Path, String name) {
+    public cardLayoutPanel(Book book) {
         initComponents();
+        this.book = book;
         Icon i = img.getIcon();
         ImageIcon icon = (ImageIcon) i;
         Image image = icon.getImage().getScaledInstance(80, 100, Image.SCALE_SMOOTH);
         img.setIcon(new ImageIcon(image));
-       
+        name.setText(book.title);
     }
 
     /**
@@ -36,7 +39,7 @@ public class cardLayoutPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
-        jLabel1 = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         img = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -54,11 +57,11 @@ public class cardLayoutPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(243, 238, 234));
         setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(119, 107, 93));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("book");
-        add(jLabel1, java.awt.BorderLayout.PAGE_START);
+        name.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        name.setForeground(new java.awt.Color(119, 107, 93));
+        name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        name.setText("book");
+        add(name, java.awt.BorderLayout.PAGE_START);
 
         img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my_package/imgs/pngegg.png"))); // NOI18N
@@ -78,6 +81,6 @@ public class cardLayoutPanel extends javax.swing.JPanel {
     private javax.swing.JLabel img;
     private javax.swing.JButton jButton1;
     private javax.swing.JFrame jFrame1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel name;
     // End of variables declaration//GEN-END:variables
 }
