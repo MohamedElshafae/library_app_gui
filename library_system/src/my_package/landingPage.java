@@ -1,11 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package my_package;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
@@ -18,15 +18,21 @@ public class landingPage extends javax.swing.JFrame {
      * Creates new form landingPage
      */
     public landingPage() {
+
         initComponents();
-        
+
+        for (int i = 1; i <= 30; i++) {
+            cardLayoutPanel j = new cardLayoutPanel("/my_package/pngegg", "mybook");
+            jmyBooks.add(j);
+        }
         //make the icon strech
         Icon i = img.getIcon();
-        ImageIcon icon = (ImageIcon)i;
+        ImageIcon icon = (ImageIcon) i;
         Image image = icon.getImage().getScaledInstance(img.getWidth(), img.getHeight(), Image.SCALE_SMOOTH);
         img.setIcon(new ImageIcon(image));
-        
+
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,18 +52,8 @@ public class landingPage extends javax.swing.JFrame {
         img = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jmyBooks = new javax.swing.JPanel();
-        myProfile = new javax.swing.JPanel();
-        jHome = new javax.swing.JPanel();
-        HomeButtom1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        HomeButtom2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        HomeButtom3 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        HomeButtom4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        HomeButtom5 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 51, 0));
@@ -107,23 +103,13 @@ public class landingPage extends javax.swing.JFrame {
         name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         name.setText("user");
         name.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        name.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                nameMouseClicked(evt);
-            }
-        });
 
         img.setBackground(new java.awt.Color(119, 107, 93));
         img.setFont(new java.awt.Font("SansSerif", 0, 5)); // NOI18N
         img.setForeground(new java.awt.Color(119, 107, 93));
         img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my_package/pngegg.png"))); // NOI18N
+        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my_package/imgs/pngegg.png"))); // NOI18N
         img.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        img.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                imgMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,13 +120,13 @@ public class landingPage extends javax.swing.JFrame {
                     .addComponent(myProfileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(booksButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(HomeButtom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(80, 80, 80))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(135, 135, 135))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,173 +146,41 @@ public class landingPage extends javax.swing.JFrame {
 
         jhome.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 666));
 
+        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+
         jmyBooks.setBackground(new java.awt.Color(243, 238, 234));
-
-        javax.swing.GroupLayout jmyBooksLayout = new javax.swing.GroupLayout(jmyBooks);
-        jmyBooks.setLayout(jmyBooksLayout);
-        jmyBooksLayout.setHorizontalGroup(
-            jmyBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 641, Short.MAX_VALUE)
-        );
-        jmyBooksLayout.setVerticalGroup(
-            jmyBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 665, Short.MAX_VALUE)
-        );
-
+        jmyBooks.setLayout(new java.awt.GridLayout(5, 10, 1, 1));
         jTabbedPane1.addTab("tab1", jmyBooks);
 
-        myProfile.setBackground(new java.awt.Color(243, 238, 234));
-        myProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("tab2", myProfile);
+        jPanel4.setBackground(new java.awt.Color(243, 238, 234));
 
-        jHome.setBackground(new java.awt.Color(243, 238, 234));
-
-        HomeButtom1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        HomeButtom1.setForeground(new java.awt.Color(119, 107, 93));
-        HomeButtom1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        HomeButtom1.setText("name");
-        HomeButtom1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        HomeButtom1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                HomeButtom1MouseClicked(evt);
-            }
-        });
-
-        jTextField1.setBackground(new java.awt.Color(243, 238, 234));
-        jTextField1.setForeground(new java.awt.Color(119, 107, 93));
-        jTextField1.setText(".");
-        jTextField1.setEnabled(false);
-
-        HomeButtom2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        HomeButtom2.setForeground(new java.awt.Color(119, 107, 93));
-        HomeButtom2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        HomeButtom2.setText("address");
-        HomeButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        HomeButtom2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                HomeButtom2MouseClicked(evt);
-            }
-        });
-
-        jTextField2.setBackground(new java.awt.Color(243, 238, 234));
-        jTextField2.setForeground(new java.awt.Color(119, 107, 93));
-        jTextField2.setText(".");
-        jTextField2.setEnabled(false);
-
-        jTextField3.setBackground(new java.awt.Color(243, 238, 234));
-        jTextField3.setForeground(new java.awt.Color(119, 107, 93));
-        jTextField3.setText(".");
-        jTextField3.setEnabled(false);
-
-        HomeButtom3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        HomeButtom3.setForeground(new java.awt.Color(119, 107, 93));
-        HomeButtom3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        HomeButtom3.setText("phone");
-        HomeButtom3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        HomeButtom3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                HomeButtom3MouseClicked(evt);
-            }
-        });
-
-        jTextField4.setBackground(new java.awt.Color(243, 238, 234));
-        jTextField4.setForeground(new java.awt.Color(119, 107, 93));
-        jTextField4.setText(".");
-        jTextField4.setEnabled(false);
-
-        HomeButtom4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        HomeButtom4.setForeground(new java.awt.Color(119, 107, 93));
-        HomeButtom4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        HomeButtom4.setText("email");
-        HomeButtom4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        HomeButtom4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                HomeButtom4MouseClicked(evt);
-            }
-        });
-
-        jButton1.setBackground(new java.awt.Color(243, 238, 234));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(119, 107, 93));
-        jButton1.setText("Edit Profile");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        HomeButtom5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        HomeButtom5.setForeground(new java.awt.Color(119, 107, 93));
-        HomeButtom5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        HomeButtom5.setText("My Profile");
-        HomeButtom5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        HomeButtom5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                HomeButtom5MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jHomeLayout = new javax.swing.GroupLayout(jHome);
-        jHome.setLayout(jHomeLayout);
-        jHomeLayout.setHorizontalGroup(
-            jHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jHomeLayout.createSequentialGroup()
-                .addGap(179, 179, 179)
-                .addGroup(jHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jHomeLayout.createSequentialGroup()
-                            .addComponent(HomeButtom2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jHomeLayout.createSequentialGroup()
-                            .addComponent(HomeButtom1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jHomeLayout.createSequentialGroup()
-                            .addComponent(HomeButtom3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jHomeLayout.createSequentialGroup()
-                        .addComponent(HomeButtom4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(194, Short.MAX_VALUE))
-            .addComponent(HomeButtom5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jHomeLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(249, 249, 249))
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 455, Short.MAX_VALUE)
         );
 
-        jHomeLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField1, jTextField2, jTextField3, jTextField4});
+        jTabbedPane1.addTab("tab2", jPanel4);
 
-        jHomeLayout.setVerticalGroup(
-            jHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jHomeLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(HomeButtom5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73)
-                .addGroup(jHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(HomeButtom1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(HomeButtom2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(HomeButtom3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(HomeButtom4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(295, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 455, Short.MAX_VALUE)
         );
 
-        jHomeLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextField1, jTextField2, jTextField3, jTextField4});
+        jTabbedPane1.addTab("tab3", jPanel5);
 
-        jTabbedPane1.addTab("tab3", jHome);
-
-        jhome.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, -40, -1, 700));
+        jhome.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 800, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -336,55 +190,27 @@ public class landingPage extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jhome, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jhome, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void HomeButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtomMouseClicked
-        jTabbedPane1.setSelectedIndex(0);
-    }//GEN-LAST:event_HomeButtomMouseClicked
+    private void myProfileButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myProfileButtonMouseClicked
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_myProfileButtonMouseClicked
 
     private void booksButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksButtonMouseClicked
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_booksButtonMouseClicked
 
-    private void myProfileButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myProfileButtonMouseClicked
-        jTabbedPane1.setSelectedIndex(2);
-    }//GEN-LAST:event_myProfileButtonMouseClicked
+    private void HomeButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtomMouseClicked
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_HomeButtomMouseClicked
 
-    private void nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameMouseClicked
-
-    private void imgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_imgMouseClicked
-
-    private void HomeButtom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtom1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HomeButtom1MouseClicked
-
-    private void HomeButtom2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtom2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HomeButtom2MouseClicked
-
-    private void HomeButtom3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtom3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HomeButtom3MouseClicked
-
-    private void HomeButtom4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtom4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HomeButtom4MouseClicked
-
-    private void HomeButtom5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtom5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HomeButtom5MouseClicked
-
-    /**u
+    /**
+     * u
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -421,24 +247,14 @@ public class landingPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel HomeButtom;
-    private javax.swing.JLabel HomeButtom1;
-    private javax.swing.JLabel HomeButtom2;
-    private javax.swing.JLabel HomeButtom3;
-    private javax.swing.JLabel HomeButtom4;
-    private javax.swing.JLabel HomeButtom5;
     private javax.swing.JLabel booksButton;
     private javax.swing.JLabel img;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jHome;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JPanel jhome;
     private javax.swing.JPanel jmyBooks;
-    private javax.swing.JPanel myProfile;
     private javax.swing.JLabel myProfileButton;
     private javax.swing.JLabel name;
     // End of variables declaration//GEN-END:variables
