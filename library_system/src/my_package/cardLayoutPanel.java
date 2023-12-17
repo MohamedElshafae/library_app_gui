@@ -41,7 +41,7 @@ public class cardLayoutPanel extends javax.swing.JPanel {
         jFrame1 = new javax.swing.JFrame();
         name = new javax.swing.JLabel();
         img = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        more_details = new javax.swing.JButton();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -70,30 +70,28 @@ public class cardLayoutPanel extends javax.swing.JPanel {
         img.setMinimumSize(new java.awt.Dimension(60, 80));
         add(img, java.awt.BorderLayout.CENTER);
 
-        jButton1.setBackground(new java.awt.Color(243, 238, 234));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(119, 107, 93));
-        jButton1.setText("more details");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        more_details.setBackground(new java.awt.Color(243, 238, 234));
+        more_details.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        more_details.setForeground(new java.awt.Color(119, 107, 93));
+        more_details.setText("more details");
+        more_details.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        more_details.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                more_detailsActionPerformed(evt);
             }
         });
-        add(jButton1, java.awt.BorderLayout.PAGE_END);
+        add(more_details, java.awt.BorderLayout.PAGE_END);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        book_details obj = new book_details();
-        obj.book = book;
-        hide();
+    private void more_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_more_detailsActionPerformed
+        book_details obj = new book_details(book);
         obj.show();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_more_detailsActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel img;
-    private javax.swing.JButton jButton1;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JButton more_details;
     private javax.swing.JLabel name;
     // End of variables declaration//GEN-END:variables
 }
