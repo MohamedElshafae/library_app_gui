@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class Author extends Base {
     public int memberId;
+    Author Author;
     public List<Book> books;
     
     public Author(int memberId, List<Book> books) {

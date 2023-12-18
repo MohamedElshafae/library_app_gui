@@ -8,7 +8,10 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import models.Book;
-
+import api.AuthorController;
+import api.MemberController;
+import models.Author;
+import models.Member;
 /**
  *
  * @author AL AHLAWY
@@ -18,12 +21,19 @@ public class book_details extends javax.swing.JFrame {
     /**
      * Creates new form book_details
      */
-    public book_details() {
-        
+    public book_details(Book book) {      
         initComponents();
-        describtion.setText(book.description);
-        title.setText(book.title);
-        genre.setText("Genre: " + book.genres);
+        this.book = book;
+        System.out.println(book);
+        if (book != null){
+            describtion.setText(book.description);
+            title.setText(book.title);
+//            genre.setText("Genre: " + book.genres.get(1));
+            Author auth = AuthorController.getAuthorById(book.authorId);
+            Member member = MemberController.getMemberById(auth.memberId);
+            auther.setText("By: " + member.name);
+        }
+
         Icon i = img.getIcon();
         ImageIcon icon = (ImageIcon) i;
         Image image = icon.getImage().getScaledInstance(img.getWidth(),img.getHeight(), Image.SCALE_SMOOTH);
@@ -50,7 +60,7 @@ public class book_details extends javax.swing.JFrame {
         Book = new javax.swing.JButton();
         reserve = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(243, 238, 234));
 
@@ -243,7 +253,7 @@ public class book_details extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new book_details().setVisible(true);
+                new book_details(null).setVisible(true);
             }
         });
     }
