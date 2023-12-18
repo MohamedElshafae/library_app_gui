@@ -11,6 +11,7 @@ import java.net.http.HttpResponse;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.util.List;
+import models.Author;
 import models.Book;
 
 /**
@@ -21,23 +22,23 @@ public class BookController {
 
     public static List<Book> getAllBooks() {
         HttpRequest x = (HttpRequest) HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:3000/api/book"))  
+                .uri(URI.create("http://localhost:3000/api/book"))
                 .GET().build();
         HttpClient httpClient = HttpClient.newHttpClient();
         try {
             HttpResponse<String> response = httpClient.send(x, HttpResponse.BodyHandlers.ofString());
             String responseBody = response.body();
             Gson gson = new Gson();
-            BooksResponse books = gson.fromJson(responseBody, BooksResponse.class);
-            System.out.print(books.getBooks());
-            return books.getBooks();
+            List<Book> books = gson.fromJson(responseBody, new TypeToken<List<Book>>() {
+            }.getType());
+            return books;
         } catch (Exception e) {
             System.out.println(e);
         }
         return null;
     }
-    
-        public static void createBook(Book book) {
+
+    public static void createBook(Book book) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:3000/api/book"))
                 .header("Content-Type", "application/json")
@@ -54,8 +55,26 @@ public class BookController {
         }
     }
 
-    
+    public static List<Book> getBooksByAuthorId(int id) {
+        HttpRequest x = (HttpRequest) HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:3000/api/book/"+id))
+                .GET().build();
+        HttpClient httpClient = HttpClient.newHttpClient();
+        try {
+            HttpResponse<String> response = httpClient.send(x, HttpResponse.BodyHandlers.ofString());
+            String responseBody = response.body();
+            Gson gson = new Gson();
+            List<Book> books = gson.fromJson(responseBody, new TypeToken<List<Book>>() {
+            }.getType());
+            return books;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
     private static class BooksResponse {
+
         private List<Book> books;
 
         public List<Book> getBooks() {
@@ -63,4 +82,3 @@ public class BookController {
         }
     }
 }
-

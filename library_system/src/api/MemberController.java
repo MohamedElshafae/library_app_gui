@@ -80,6 +80,32 @@ public class MemberController {
         return null;
     }
 
+    public static Member getMemberById(int id) {
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:3000/api/member/" + id))
+                .header("Content-Type", "application/json")
+                .GET()
+                .build();
+        HttpClient httpClient = HttpClient.newHttpClient();
+        try {
+
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            String responseBody = response.body();
+            Gson gson = new Gson();
+
+            Member memberRes = gson.fromJson(responseBody, Member.class);
+            if (memberRes.name == null) {
+                return null;
+            }
+            return memberRes;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
     public static void createMember(Member member) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:3000/api/member"))
@@ -98,6 +124,28 @@ public class MemberController {
         }
     }
 
+    
+        public static Member ChangeMemberPassword(int id, String password) {
+            Map<String, String> data = new HashMap<>();
+            data.put("password", password);
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:3000/api/member/"+id))
+                .header("Content-Type", "application/json")
+                .PUT(HttpRequest.BodyPublishers.ofString(new Gson().toJson(data)))
+                .build();
+        HttpClient httpClient = HttpClient.newHttpClient();
+
+        try {
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            String responseBody = response.body();
+            return new Gson().fromJson(responseBody, Member.class);
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+        
     private static class MembersResponse {
 
         private List<Member> members;

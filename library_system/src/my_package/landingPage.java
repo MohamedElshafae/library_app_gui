@@ -10,6 +10,8 @@ import javax.swing.*;
 import api.BookController;
 import java.util.List;
 import models.Book;
+import models.MemberSingleton;
+import models.Member;
 /**
  *
  * @author AL AHLAWY
@@ -26,7 +28,6 @@ public class landingPage extends javax.swing.JFrame {
         
         BookController obj = new BookController();
         List<Book> book_arr = obj.getAllBooks();
-        System.out.print(book_arr);
         if (book_arr != null) {
             for (int i = 0; i < book_arr.size(); i++) {
                 cardLayoutPanel j = new cardLayoutPanel(book_arr.get(i));
@@ -38,6 +39,12 @@ public class landingPage extends javax.swing.JFrame {
         ImageIcon icon = (ImageIcon) i;
         Image image = icon.getImage().getScaledInstance(img.getWidth(), img.getHeight(), Image.SCALE_SMOOTH);
         img.setIcon(new ImageIcon(image));
+        
+        
+        Member m = MemberSingleton.getInstance().getMember();
+        userName.setText(m.name);
+        email.setText(m.email);
+        password.setText(m.password);
 
     }
 
@@ -63,6 +70,13 @@ public class landingPage extends javax.swing.JFrame {
         jmyBooks = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        userName = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        email = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 51, 0));
@@ -190,15 +204,60 @@ public class landingPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab2", jPanel4);
 
+        jLabel1.setText("User Name");
+
+        jLabel2.setText("Email");
+
+        userName.setEditable(false);
+
+        jLabel3.setText("Password");
+
+        email.setEditable(false);
+
+        password.setEditable(false);
+        password.setText("jPasswordField1");
+
+        jButton1.setText("Change Password");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(245, 245, 245)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(password)
+                    .addComponent(email)
+                    .addComponent(userName)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
+                .addContainerGap(372, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 455, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addGap(25, 25, 25)
+                .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(30, 30, 30)
+                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab3", jPanel5);
@@ -236,6 +295,12 @@ public class landingPage extends javax.swing.JFrame {
         hide();
         obj.show();
     }//GEN-LAST:event_logoutMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Member m = MemberSingleton.getInstance().getMember();
+        new ChangePassword().show();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * u
@@ -277,7 +342,12 @@ public class landingPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel HomeButtom;
     private javax.swing.JLabel booksButton;
+    private javax.swing.JTextField email;
     private javax.swing.JLabel img;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -287,5 +357,7 @@ public class landingPage extends javax.swing.JFrame {
     private javax.swing.JLabel logout;
     private javax.swing.JLabel myProfileButton;
     private javax.swing.JLabel name;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JTextField userName;
     // End of variables declaration//GEN-END:variables
 }
