@@ -34,6 +34,9 @@ public class landingPage extends javax.swing.JFrame {
                 jmyBooks.add(j);
             }
         }
+        if (!member.isAuthor){
+            CreateBook1.setVisible(false);
+        }
 
         //make the icon strech
         Icon i = img1.getIcon();
@@ -67,7 +70,7 @@ public class landingPage extends javax.swing.JFrame {
         namee = new javax.swing.JLabel();
         img1 = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
-        myProfileButton1 = new javax.swing.JLabel();
+        CreateBook1 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jmyBooks = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -79,6 +82,7 @@ public class landingPage extends javax.swing.JFrame {
         email = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -158,14 +162,14 @@ public class landingPage extends javax.swing.JFrame {
             }
         });
 
-        myProfileButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        myProfileButton1.setForeground(new java.awt.Color(255, 255, 255));
-        myProfileButton1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        myProfileButton1.setText("Create Book");
-        myProfileButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        myProfileButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        CreateBook1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        CreateBook1.setForeground(new java.awt.Color(255, 255, 255));
+        CreateBook1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        CreateBook1.setText("Create Book");
+        CreateBook1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CreateBook1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                myProfileButton1MouseClicked(evt);
+                CreateBook1MouseClicked(evt);
             }
         });
 
@@ -185,7 +189,7 @@ public class landingPage extends javax.swing.JFrame {
                     .addComponent(booksButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(HomeButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(logout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(myProfileButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(CreateBook1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(80, 80, 80))
         );
         jPanel1Layout.setVerticalGroup(
@@ -202,7 +206,7 @@ public class landingPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(myProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(myProfileButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CreateBook1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(143, 143, 143)
                 .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(257, 257, 257))
@@ -233,19 +237,27 @@ public class landingPage extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(243, 238, 234));
 
-        jLabel1.setText("User Name");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(119, 107, 93));
+        jLabel1.setText("Name :");
 
-        jLabel2.setText("Email");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(119, 107, 93));
+        jLabel2.setText("Email :");
 
         userName.setEditable(false);
 
-        jLabel3.setText("Password");
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(119, 107, 93));
+        jLabel3.setText("Password :");
 
         email.setEditable(false);
 
         password.setEditable(false);
-        password.setText("jPasswordField1");
 
+        jButton1.setBackground(new java.awt.Color(119, 107, 93));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Change Password");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,12 +265,17 @@ public class landingPage extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(119, 107, 93));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("My Profile");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(245, 245, 245)
+                .addGap(300, 300, 300)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3)
                     .addComponent(jLabel1)
@@ -266,27 +283,30 @@ public class landingPage extends javax.swing.JFrame {
                     .addComponent(password)
                     .addComponent(email)
                     .addComponent(userName)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
-                .addContainerGap(372, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(25, 25, 25)
-                .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(30, 30, 30)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
 
         jTabbedPane1.addTab("tab3", jPanel5);
@@ -430,10 +450,10 @@ public class landingPage extends javax.swing.JFrame {
         Member m = MemberSingleton.getInstance().getMember();
         new ChangePassword().show();
     }//GEN-LAST:event_jButton1ActionPerformed
-    private void myProfileButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myProfileButton1MouseClicked
+    private void CreateBook1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateBook1MouseClicked
         jTabbedPane1.setSelectedIndex(3);
         
-    }//GEN-LAST:event_myProfileButton1MouseClicked
+    }//GEN-LAST:event_CreateBook1MouseClicked
 
     private void createBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBookActionPerformed
         
@@ -482,6 +502,7 @@ public class landingPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CreateBook1;
     private javax.swing.JLabel HomeButtom;
     private javax.swing.JLabel booksButton;
     private javax.swing.JButton createBook;
@@ -491,6 +512,7 @@ public class landingPage extends javax.swing.JFrame {
     private javax.swing.JLabel img1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -507,7 +529,6 @@ public class landingPage extends javax.swing.JFrame {
     private javax.swing.JPanel jmyBooks;
     private javax.swing.JLabel logout;
     private javax.swing.JLabel myProfileButton;
-    private javax.swing.JLabel myProfileButton1;
     private javax.swing.JLabel namee;
     private javax.swing.JPasswordField password;
     private javax.swing.JTextField title;
