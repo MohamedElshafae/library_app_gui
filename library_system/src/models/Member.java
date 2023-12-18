@@ -17,6 +17,7 @@ public class Member extends Base{
     public String phone;
     public String email;
     public String password;
+    public Author Author;
     public boolean isAuthor;
     
     

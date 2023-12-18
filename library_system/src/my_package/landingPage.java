@@ -36,10 +36,10 @@ public class landingPage extends javax.swing.JFrame {
         }
 
         //make the icon strech
-        Icon i = img.getIcon();
+        Icon i = img1.getIcon();
         ImageIcon icon = (ImageIcon) i;
-        Image image = icon.getImage().getScaledInstance(img.getWidth(), img.getHeight(), Image.SCALE_SMOOTH);
-        img.setIcon(new ImageIcon(image));
+        Image image = icon.getImage().getScaledInstance(img1.getWidth(), img1.getHeight(), Image.SCALE_SMOOTH);
+        img1.setIcon(new ImageIcon(image));
         
         
         Member m = MemberSingleton.getInstance().getMember();
@@ -65,7 +65,7 @@ public class landingPage extends javax.swing.JFrame {
         booksButton = new javax.swing.JLabel();
         myProfileButton = new javax.swing.JLabel();
         namee = new javax.swing.JLabel();
-        img = new javax.swing.JLabel();
+        img1 = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
         myProfileButton1 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -140,12 +140,12 @@ public class landingPage extends javax.swing.JFrame {
         namee.setText("user");
         namee.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        img.setBackground(new java.awt.Color(119, 107, 93));
-        img.setFont(new java.awt.Font("SansSerif", 0, 5)); // NOI18N
-        img.setForeground(new java.awt.Color(119, 107, 93));
-        img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my_package/imgs/pngegg.png"))); // NOI18N
-        img.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        img1.setBackground(new java.awt.Color(119, 107, 93));
+        img1.setFont(new java.awt.Font("SansSerif", 0, 5)); // NOI18N
+        img1.setForeground(new java.awt.Color(119, 107, 93));
+        img1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        img1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my_package/imgs/pngegg.png"))); // NOI18N
+        img1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         logout.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         logout.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,7 +176,7 @@ public class landingPage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(img1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(namee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(135, 135, 135))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -192,7 +192,7 @@ public class landingPage extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(img1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(namee)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -231,6 +231,8 @@ public class landingPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab2", jPanel4);
 
+        jPanel5.setBackground(new java.awt.Color(243, 238, 234));
+
         jLabel1.setText("User Name");
 
         jLabel2.setText("Email");
@@ -250,7 +252,6 @@ public class landingPage extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel5.setBackground(new java.awt.Color(243, 238, 234));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -436,7 +437,7 @@ public class landingPage extends javax.swing.JFrame {
 
     private void createBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBookActionPerformed
         
-        Book book = new Book(title.getText(), member.id, describtion.getText(), null);
+        Book book = new Book(title.getText(), member.Author.id, describtion.getText(), null);
         if(BookController.createBook(book))
             JOptionPane.showMessageDialog(null, "The Book is created successfully", "message", JOptionPane.INFORMATION_MESSAGE);
         else
@@ -483,21 +484,20 @@ public class landingPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel HomeButtom;
     private javax.swing.JLabel booksButton;
-    private javax.swing.JTextField email;
-    private javax.swing.JLabel img;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton createBook;
     private javax.swing.JTextField describtion;
+    private javax.swing.JTextField email;
     private javax.swing.JComboBox<String> genre;
-    private javax.swing.JLabel img;
+    private javax.swing.JLabel img1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -509,7 +509,9 @@ public class landingPage extends javax.swing.JFrame {
     private javax.swing.JLabel myProfileButton;
     private javax.swing.JLabel myProfileButton1;
     private javax.swing.JLabel namee;
+    private javax.swing.JPasswordField password;
     private javax.swing.JTextField title;
+    private javax.swing.JTextField userName;
     private javax.swing.JTextField year;
     // End of variables declaration//GEN-END:variables
 }

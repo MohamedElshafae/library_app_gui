@@ -153,7 +153,7 @@ public class sign_up extends javax.swing.JFrame {
                 addressField.getText(),
                 phoneField.getText(),
                 emailField.getText(),
-                Arrays.toString(passwordField.getPassword()),
+                new String(passwordField.getPassword()),
                 chkIsAuthor.isSelected()
         ));
         new Login().show();
