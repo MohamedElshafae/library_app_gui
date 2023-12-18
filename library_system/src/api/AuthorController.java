@@ -46,6 +46,23 @@ public class AuthorController {
             return authors;
         }
     }
+    
+    public static Author getAuthorById(int id) {
+        HttpRequest x = (HttpRequest) HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:3000/api/author/" + id))
+                .GET().build();
+        HttpClient httpClient = HttpClient.newHttpClient();
+        try {
+            HttpResponse<String> response = httpClient.send(x, HttpResponse.BodyHandlers.ofString());
+            String responseBody = response.body();
+            Gson gson = new Gson();
+            Author author = gson.fromJson(responseBody, Author.class);
+            return author;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
 
 
 }

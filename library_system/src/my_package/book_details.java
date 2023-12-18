@@ -8,7 +8,10 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import models.Book;
-
+import api.AuthorController;
+import api.MemberController;
+import models.Author;
+import models.Member;
 /**
  *
  * @author AL AHLAWY
@@ -26,6 +29,9 @@ public class book_details extends javax.swing.JFrame {
             describtion.setText(book.description);
             title.setText(book.title);
 //            genre.setText("Genre: " + book.genres.get(1));
+            Author auth = AuthorController.getAuthorById(book.authorId);
+            Member member = MemberController.getMemberById(auth.memberId);
+            auther.setText("By: " + member.name);
         }
 
         Icon i = img.getIcon();

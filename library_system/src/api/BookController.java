@@ -27,17 +27,18 @@ public class BookController {
         try {
             HttpResponse<String> response = httpClient.send(x, HttpResponse.BodyHandlers.ofString());
             String responseBody = response.body();
+            System.out.println(responseBody);
             Gson gson = new Gson();
-            BooksResponse books = gson.fromJson(responseBody, BooksResponse.class);
-            System.out.print(books.getBooks());
-            return books.getBooks();
+            List<Book> books = gson.fromJson(responseBody, new TypeToken<List<Book>>() {
+            }.getType());
+            return books;
         } catch (Exception e) {
             System.out.println(e);
         }
         return null;
     }
     
-        public static void createBook(Book book) {
+        public static Boolean createBook(Book book) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:3000/api/book"))
                 .header("Content-Type", "application/json")
@@ -48,9 +49,11 @@ public class BookController {
         try {
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             String responseBody = response.body();
+            return true;
         } catch (Exception e) {
             System.out.println("Error occurred:");
             System.out.println(e);
+            return false;
         }
     }
 
