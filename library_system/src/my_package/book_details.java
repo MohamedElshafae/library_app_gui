@@ -9,9 +9,11 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import models.Book;
 import api.AuthorController;
+import api.BookController;
 import api.MemberController;
 import models.Author;
 import models.Member;
+import models.MemberSingleton;
 /**
  *
  * @author AL AHLAWY
@@ -217,6 +219,7 @@ public class book_details extends javax.swing.JFrame {
 
     private void BookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookActionPerformed
          
+        BookController.BorrowBook(book.id, MemberSingleton.getInstance().getMember().id);
     }//GEN-LAST:event_BookActionPerformed
 
     private void reserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveActionPerformed

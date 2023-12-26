@@ -10,9 +10,13 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import javax.swing.JOptionPane;
 import models.Author;
 import models.Book;
+import my_package.book_details;
 
 /**
  *
@@ -75,13 +79,36 @@ public class BookController {
         }
         return null;
     }
+    
+    public static Book BorrowBook(int bookId, int memberId) {
+        Map<String, Integer> data = new HashMap<>();
+        data.put("bookId", bookId);
+        data.put("memberId", memberId);
 
-    private static class BooksResponse {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:3000/api/borrow"))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(new Gson().toJson(data)))
+                .build();
+        HttpClient httpClient = HttpClient.newHttpClient();
 
-        private List<Book> books;
-
-        public List<Book> getBooks() {
-            return books;
+        try {
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            String responseBody = response.body();
+            Book b = new Gson().fromJson(responseBody, Book.class);
+            System.out.println(b);
+//            if (b.title == null) {
+//                JOptionPane.showMessageDialog(new book_details(null), responseBody, "Error", JOptionPane.ERROR_MESSAGE);
+//                return null;
+//            }
+            return b;
+        } catch (Exception e) {
+            System.out.println("Error occurred:");
+            JOptionPane.showMessageDialog(new book_details(null), e, "Error", JOptionPane.ERROR_MESSAGE);
+            System.out.println(e);
+            return null;
         }
     }
+
+
 }

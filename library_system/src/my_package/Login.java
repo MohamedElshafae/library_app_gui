@@ -185,7 +185,7 @@ public class Login extends javax.swing.JFrame {
 
     private void loginBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn2ActionPerformed
         if(emailTextField2.getText().trim().isEmpty())
-           JOptionPane.showMessageDialog(null, "The email is not invalid", "Validation Error", JOptionPane.ERROR_MESSAGE);
+           JOptionPane.showMessageDialog(this, "The email is not invalid", "Validation Error", JOptionPane.ERROR_MESSAGE);
         else if(passwordTextField2.getText().trim().isEmpty())
             JOptionPane.showMessageDialog(null, "The password is empty", "Validation Error", JOptionPane.ERROR_MESSAGE);
         else{

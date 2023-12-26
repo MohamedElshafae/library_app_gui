@@ -65,7 +65,6 @@ public class landingPage extends javax.swing.JFrame {
         jhome = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         HomeButtom = new javax.swing.JLabel();
-        booksButton = new javax.swing.JLabel();
         myProfileButton = new javax.swing.JLabel();
         namee = new javax.swing.JLabel();
         img1 = new javax.swing.JLabel();
@@ -113,17 +112,6 @@ public class landingPage extends javax.swing.JFrame {
         HomeButtom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HomeButtomMouseClicked(evt);
-            }
-        });
-
-        booksButton.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        booksButton.setForeground(new java.awt.Color(255, 255, 255));
-        booksButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        booksButton.setText("My Books");
-        booksButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        booksButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                booksButtonMouseClicked(evt);
             }
         });
 
@@ -186,7 +174,6 @@ public class landingPage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(myProfileButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(booksButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(HomeButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(logout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(CreateBook1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -201,15 +188,13 @@ public class landingPage extends javax.swing.JFrame {
                 .addComponent(namee)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(HomeButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(booksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(myProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(CreateBook1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(143, 143, 143)
+                .addGap(194, 194, 194)
                 .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(257, 257, 257))
+                .addGap(253, 253, 253))
         );
 
         jhome.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 666));
@@ -217,7 +202,7 @@ public class landingPage extends javax.swing.JFrame {
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
 
         jmyBooks.setBackground(new java.awt.Color(243, 238, 234));
-        jmyBooks.setLayout(new java.awt.GridLayout(5, 10, 1, 1));
+        jmyBooks.setLayout(new java.awt.GridLayout(2, 4, 1, 1));
         jTabbedPane1.addTab("tab1", jmyBooks);
 
         jPanel4.setBackground(new java.awt.Color(243, 238, 234));
@@ -283,7 +268,7 @@ public class landingPage extends javax.swing.JFrame {
                     .addComponent(password)
                     .addComponent(email)
                     .addComponent(userName)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, Short.MAX_VALUE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(317, Short.MAX_VALUE))
         );
@@ -431,10 +416,6 @@ public class landingPage extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_myProfileButtonMouseClicked
 
-    private void booksButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksButtonMouseClicked
-        jTabbedPane1.setSelectedIndex(1);
-    }//GEN-LAST:event_booksButtonMouseClicked
-
     private void HomeButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtomMouseClicked
         jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_HomeButtomMouseClicked
@@ -504,7 +485,6 @@ public class landingPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CreateBook1;
     private javax.swing.JLabel HomeButtom;
-    private javax.swing.JLabel booksButton;
     private javax.swing.JButton createBook;
     private javax.swing.JTextField describtion;
     private javax.swing.JTextField email;
